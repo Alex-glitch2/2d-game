@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     {
     MoveAction.Enable(); 
     rigidbody2d = GetComponent<Rigidbody2D>();
-    //currentHealth = maxHealth;
+    currentHealth = 1;
     }
 
     // Update is called once per frame
@@ -76,6 +76,8 @@ public class PlayerController : MonoBehaviour
 
 
     currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxhealth);
+    UIHealthbar.instance.SetValue(currentHealth / (float)maxhealth);
+
      Debug.Log(currentHealth + "/" + maxhealth);
      }
 
